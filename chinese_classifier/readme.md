@@ -1,3 +1,37 @@
+# 个人过程
+
+## step1
+`code_02.py`将`code_02_trainmodel.ipynb`的代码COPY到一起来进行debug，大致看懂了整个流程。
+以及比如：
+```bash
+***** Running training *****
+  Num examples = 6988
+  Num Epochs = 4
+  Instantaneous batch size per device = 32
+  Total train batch size (w. parallel, distributed & accumulation) = 32
+  Gradient Accumulation steps = 1
+  Total optimization steps = 876
+  Number of trainable parameters = 102269186
+```
+是怎么计算的。**以及使用自己的评估指标。**
+
+
+## step2
+`code_02_self_dataset.py`是自己重写了`dataset`流程。其中`MyDataCollator`也就是collate_fn.
+
+
+## step3
+
+如果我们想自己重写model，而不是使用已有的task model，所以`code_02_full.py`是在step2的基础上对model进行了改动，另外也写了`code_03_full.py`来写对应的predict过程。
+
+## 总结
+至此自定义metric、自定义dataset、自定义model都可以实现。
+
+
+## 参考资料
+[从 PyTorch DDP 到 Accelerate 到 Trainer，轻松掌握分布式训练](https://huggingface.co/blog/zh/pytorch-ddp-accelerate-transformers)
+
+
 # 介绍
 本部分，介绍中文的文本分类模型，适用于二分类、多分类等情况。使用transformers库。
 
