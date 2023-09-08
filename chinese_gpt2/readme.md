@@ -1,3 +1,7 @@
+# 个人尝试
+
+具体看[how_to_cal_loss.py](./how_to_cal_loss.py)，主要是看了计算loss的实现方式。
+
 # 介绍
 
 1. 本文，将介绍如何使用中文语料，训练一个gpt2

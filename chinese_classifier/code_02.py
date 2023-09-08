@@ -2,7 +2,7 @@
 #
 import shutil
 
-import evaluate
+# import evaluate
 import numpy as np
 import transformers
 from datasets import load_dataset
@@ -11,7 +11,7 @@ from transformers import AutoModelForSequenceClassification, TrainingArguments, 
 from transformers import AutoTokenizer
 from transformers import DataCollatorWithPadding
 
-metric = evaluate.load("accuracy")
+# metric = evaluate.load("accuracy")
 # "bert-base-chinese"  # "distilbert-base-uncased"
 MODEL_NAME_OR_PATH = "/home/yuzhang/windows_share/python-packages/pretrained/chinese-roberta-wwm-ext"
 NUM_LABELS = 2
@@ -71,7 +71,7 @@ training_args = TrainingArguments(
 def compute_metrics(eval_pred):
     logits, labels = eval_pred
     predictions = np.argmax(logits, axis=-1)
-    res = metric.compute(predictions=predictions, references=labels)
+    # res = metric.compute(predictions=predictions, references=labels)
 
     res = f1_score(labels, predictions, average='macro')
     print(classification_report(labels, predictions))
