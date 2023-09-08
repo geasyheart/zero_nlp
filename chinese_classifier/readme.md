@@ -24,10 +24,18 @@
 
 如果我们想自己重写model，而不是使用已有的task model，所以`code_02_full.py`是在step2的基础上对model进行了改动，另外也写了`code_03_full.py`来写对应的predict过程。
 
+## step4
+step3和自定义model，其实我们都是需要预训练模型的，而`BertForSequenceClassification`也是继承自`BertPreTrainedModel`，所以我们也可以复用这些。
+评测脚本可看`code_03_full2.py`。
+
+
 ## 总结
-至此自定义metric、自定义dataset、自定义model都可以实现。
+至此自定义metric、自定义dataset、自定义model、复用pretrained model、DDP都可以实现。
 
-
+DDP:
+```bash
+CUDA_VISIBLE_DEVICES="0,1" python -m torch.distributed.launch   --nproc_per_node 2 code_02.py 
+```
 ## 参考资料
 [从 PyTorch DDP 到 Accelerate 到 Trainer，轻松掌握分布式训练](https://huggingface.co/blog/zh/pytorch-ddp-accelerate-transformers)
 
